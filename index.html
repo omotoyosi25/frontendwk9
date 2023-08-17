@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrom checker</title>
+    <!-- <link rel="stylesheet" href="./output.css"> -->
+</head>
+<body>
+    <main>
+        <input type="text" name="pali" id="pali" placeholder="input a word to check Palindrom">
+        <button>Palindrom</button>
+        <p></p>
+    </main>
+</body>
+<script>
+    const btn = document.querySelector('button')
+    const input = document.querySelector('input')
+    const para = document.querySelector('p')
+
+    const palCheck = () => {
+        let val = (input.value)
+        val = val.toLowerCase()
+        // create a regex that test if a str contains only alpha-numeric
+        let regex = /[a-z0-9]/gi
+        // save the match test as str1
+        let str1 = val.match(regex)
+        // Reverse str1 and save it as str2
+        let str2 = str1.slice()
+        str2 = str2.reverse()
+        // turn both str1 and str2 to string
+        str1 = str1.join('')
+        str2 = str2.join('')
+        // check if both string are the same
+        para.innerText = str2 === str2
+    }
+
+     btn.addEventListener('click', palCheck)
+</script>
+</html>
